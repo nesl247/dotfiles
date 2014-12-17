@@ -54,7 +54,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 PATH="${HOME}/Code/scripts:${PATH}"
-PATH="$(brew --prefix homebrew/php/php56)/bin:${PATH}"
+if [[ -x $(which brew) ]]; then
+	PATH="$(brew --prefix homebrew/php/php56)/bin:${PATH}"
+fi
 PATH="${HOME}/.composer/vendor/bin:${PATH}"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/android-sdk/platform-tools"
 # export MANPATH="/usr/local/man:$MANPATH"
