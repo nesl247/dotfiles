@@ -3,7 +3,7 @@
 for x in confs/*;
 do
 	file=$(basename $x)
-	source=${PWD}/conf/${file}
+	source=${PWD}/confs/${file}
 	target=${HOME}/.${file}
 	
 	if ! test -L $target; then
