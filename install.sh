@@ -12,3 +12,12 @@ do
 		echo "${target} already exists. It must be removed and then re-run this installer"
 	fi
 done
+
+for x in installers/*;
+do
+	if test -x $x; then
+		${x}
+	else
+		echo "$(basename ${x}) is not executable"
+	fi
+done
