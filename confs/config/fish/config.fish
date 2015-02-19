@@ -25,9 +25,15 @@ set default_user harrison
 . $fish_path/oh-my-fish.fish
 
 # Custom Path
-set fish_user_paths $fish_user_paths ~/Code/scripts
-set fish_user_paths $fish_user_paths ~/.composer/vendor/bin
-if test -e (which brew)
+if test -d ~/Code/scripts
+	set fish_user_paths $fish_user_paths ~/Code/scripts
+end
+
+if test -d ~/.composer/vendor/bin
+	set fish_user_paths $fish_user_paths ~/.composer/vendor/bin
+end
+
+if test -e /usr/local/bin/brew
 	set fish_user_paths $fish_user_paths (brew --prefix homebrew/php/php56)/bin
 end
 
