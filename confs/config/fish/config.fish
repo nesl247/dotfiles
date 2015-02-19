@@ -38,4 +38,6 @@ if test -e /usr/local/bin/brew
 end
 
 # Aliases
-alias git "hub"
+if test -e /usr/local/bin/hub
+	alias git "hub"
+end
