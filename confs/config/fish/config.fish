@@ -25,16 +25,14 @@ set default_user harrison
 . $fish_path/oh-my-fish.fish
 
 # Custom Path
-if test -d ~/Code/scripts
-	set fish_user_paths $fish_user_paths ~/Code/scripts
-end
-
-if test -d ~/.composer/vendor/bin
-	set fish_user_paths $fish_user_paths ~/.composer/vendor/bin
-end
+set -U fish_user_paths /usr/local/opt/coreutils/libexec/gnubin $fish_user_paths
+set MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
+set -U fish_user_paths $fish_user_paths ~/Code/scripts
+set -U fish_user_paths $fish_user_paths ~/.composer/vendor/bin
+set fish_user_paths $fish_user_paths ./vendor/bin
 
 if test -e /usr/local/bin/brew
-	set fish_user_paths $fish_user_paths (brew --prefix homebrew/php/php56)/bin
+	set -U fish_user_paths $fish_user_paths (brew --prefix homebrew/php/php56)/bin
 end
 
 # Aliases
