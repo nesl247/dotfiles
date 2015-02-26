@@ -32,7 +32,9 @@ set -U fish_user_paths $fish_user_paths ~/.composer/vendor/bin
 set fish_user_paths $fish_user_paths ./vendor/bin
 
 if test -e /usr/local/bin/brew
-	set -U fish_user_paths $fish_user_paths (brew --prefix homebrew/php/php56)/bin
+	if test -d (brew --prefix homebrew/php/php56)/bin
+		set -U fish_user_paths $fish_user_paths (brew --prefix homebrew/php/php56)/bin
+	end
 end
 
 # Aliases
