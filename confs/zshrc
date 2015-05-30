@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github brew osx tmux zsh-syntax-highlighting)
+plugins=(brew osx tmux zsh-syntax-highlighting)
 
 #ZSH_TMUX_AUTOSTART="true"
 
@@ -53,13 +53,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
 PATH="${HOME}/Code/scripts:${PATH}"
 if [[ -x $(which brew) ]]; then
 	PATH="$(brew --prefix homebrew/php/php56)/bin:${PATH}"
 fi
 PATH="${HOME}/.composer/vendor/bin:${PATH}"
-export PATH="${PATH}:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/android-sdk/platform-tools"
-# export MANPATH="/usr/local/man:$MANPATH"
+PATH="${PATH}:./vendor/bin"
+export PATH=$PATH
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
