@@ -1,17 +1,6 @@
 # Path to your oh-my-fish.
 set fish_path $HOME/.oh-my-fish
 
-# Theme
-#set fish_theme robbyrussell
-set fish_theme clearance
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
-# Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
-# Example format: set fish_plugins autojump bundler
-
-# Path to your custom folder (default path is $FISH/custom)
-#set fish_custom $HOME/dotfiles/oh-my-fish
-
 # Theme Settings
 set theme_display_ruby no
 set theme_display_virtualenv no
@@ -20,6 +9,9 @@ set default_user harrison
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+# Theme
+Theme "clearance"
 
 # Custom Path
 set -U fish_user_paths /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin $fish_user_paths
