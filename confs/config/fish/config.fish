@@ -2,9 +2,6 @@
 set fish_path $HOME/.oh-my-fish
 
 # Theme Settings
-set theme_display_ruby no
-set theme_display_virtualenv no
-set theme_display_user yes
 set default_user harrison
 
 # Load oh-my-fish configuration.
@@ -30,3 +27,5 @@ end
 if test -e /usr/local/bin/hub
 	alias git "hub"
 end
+
+set -Ux EDITOR /usr/local/bin/nano
