@@ -11,7 +11,7 @@ set default_user harrison
 Theme "clearance"
 
 # Custom Path
-set -U fish_user_paths /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin $fish_user_paths
+set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin /usr/local/sbin $PATH
 
 set MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 
@@ -19,7 +19,7 @@ if test -x /usr/local/bin/brew
 	set brew_prefix (brew --prefix homebrew/php/php56)
 	if test -d $brew_prefix/bin
 		#set my_paths $my_paths $brew_prefix/bin
-		set -U fish_user_paths $fish_user_paths $brew_prefix/bin
+		set -gx PATH $brew_prefix/bin $PATH
 	end
 end
 
@@ -28,4 +28,4 @@ if test -e /usr/local/bin/hub
 	alias git "hub"
 end
 
-set -Ux EDITOR /usr/local/bin/nano
+set -gx EDITOR /usr/local/bin/nano
