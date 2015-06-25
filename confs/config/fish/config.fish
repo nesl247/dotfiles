@@ -28,4 +28,5 @@ if test -e /usr/local/bin/hub
 	alias git "hub"
 end
 
-set -gx EDITOR /usr/local/bin/nano
+set -gx EDITOR (which nano)
+
