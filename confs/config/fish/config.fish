@@ -1,27 +1,19 @@
 # Path to your oh-my-fish.
 set fish_path $HOME/.oh-my-fish
 
-# Theme Settings
-set default_user harrison
-
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
 # Theme
-Theme "clearance"
+Theme 'clearance'
+Plugin 'theme'
 
 # Custom Path
-set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin /usr/local/sbin $PATH
+set -gx GOPATH $HOME/.go
+
+set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin ./bin $GOPATH/bin /usr/local/sbin $PATH
 
 set MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
-
-if test -x /usr/local/bin/brew
-	set brew_prefix (brew --prefix homebrew/php/php56)
-	if test -d $brew_prefix/bin
-		#set my_paths $my_paths $brew_prefix/bin
-		set -gx PATH $brew_prefix/bin $PATH
-	end
-end
 
 # Aliases
 if test -e /usr/local/bin/hub
@@ -30,3 +22,4 @@ end
 
 set -gx EDITOR (which nano)
 
+alias php7 "/usr/local/Cellar/php70/7.0.0-rc.1/bin/php"
