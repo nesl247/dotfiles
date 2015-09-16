@@ -22,6 +22,9 @@ set -gx MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 alias php7 "/usr/local/opt/php70/bin/php"
 alias hcomposer "hhvm /usr/local/bin/composer"
 
+function fish_right_prompt
+end
+
 function -e fish_preexec _run_fasd
   fasd --proc (fasd --sanitize "$argv") > "/dev/null" 2>&1
 end
@@ -31,6 +34,10 @@ function z
 end
 
 complete -c z --no-files -a (printf "%s " (fasd -ld))
+
+function fish_user_key_bindings
+  bind \cr 'peco_select_history (commandline -b)'
+end
 
 # enhancd
 source $HOME/.enhancd/fish/enhancd.fish
