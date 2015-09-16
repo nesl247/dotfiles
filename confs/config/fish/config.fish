@@ -16,12 +16,11 @@ source $OMF_PATH/init.fish
 set -gx GOPATH $HOME/.go
 
 set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin ./bin $GOPATH/bin /usr/local/sbin $PATH
-
-set MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
-
 set -gx EDITOR (which nano)
+set -gx MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 
-alias php7 "/usr/local/Cellar/php70/7.0.0-rc.1/bin/php"
+alias php7 "/usr/local/opt/php70/bin/php"
+alias hcomposer "hhvm /usr/local/bin/composer"
 
 function -e fish_preexec _run_fasd
   fasd --proc (fasd --sanitize "$argv") > "/dev/null" 2>&1
@@ -32,3 +31,12 @@ function z
 end
 
 complete -c z --no-files -a (printf "%s " (fasd -ld))
+
+# enhancd
+source $HOME/.enhancd/fish/enhancd.fish
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+if test -z $TMUX
+  tmux attach -t default; or tmux new -s default
+end
