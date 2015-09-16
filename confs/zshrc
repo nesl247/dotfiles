@@ -62,10 +62,12 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 # Aliases
 if test -e /usr/local/bin/hub; then
-        alias git="hub"
+	alias git="hub"
 fi
 
 alias php7="/usr/local/Cellar/php70/7.0.0-rc.1/bin/php"
 alias ls='ls --color=auto --indicator-style=classify'
 
 export EDITOR='nano'
+
+source $HOME/.enhancd/zsh/enhancd.zsh
