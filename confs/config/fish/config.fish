@@ -9,12 +9,12 @@ source $OMF_PATH/init.fish
 
 # Custom Path
 set -gx GOPATH $HOME/.go
-set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin ./bin $GOPATH/bin /usr/local/sbin $PATH
+set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin ./bin $GOPATH/bin $PATH
 set -gx EDITOR (which vim)
-set -gx MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
+set -gx MANPATH /usr/local/opt/coreutils/libexec/gnuman /usr/local/share/man /usr/share/man
 
 # Sets LS back to default with GRC plugin
-set grcplugin_ls --indicator-style=classify --color -lh
+set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
 alias php7 "/usr/local/opt/php70/bin/php"
@@ -41,12 +41,12 @@ function fish_user_key_bindings
 end
 
 # enhancd
-set -x ENHANCD_FILTER fzf
+set -gx ENHANCD_FILTER fzf
 source $HOME/.enhancd/fish/enhancd.fish
-alias cd enhancd
+alias z enhancd
 
 # iTerm2 integration
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+#test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Autostart tmux
 if test -z $TMUX
