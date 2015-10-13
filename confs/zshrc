@@ -71,3 +71,6 @@ alias ls='ls --color=auto --indicator-style=classify'
 export EDITOR='nano'
 
 source $HOME/.enhancd/zsh/enhancd.zsh
+
+# added by travis gem
+[ -f /Users/harrison/.travis/travis.sh ] && source /Users/harrison/.travis/travis.sh

@@ -1,9 +1,6 @@
 # Path to your oh-my-fish.
 set -g OMF_PATH /Users/harrison/.local/share/omf
 
-# Path to your oh-my-fish configuration.
-set -g OMF_CONFIG /Users/harrison/.config/omf
-
 # Load oh-my-fish configuration.
 source $OMF_PATH/init.fish
 
@@ -21,8 +18,8 @@ alias php7 "/usr/local/opt/php70/bin/php"
 alias hcomposer "hhvm /usr/local/bin/composer"
 
 # Disable the right prompt
-function fish_right_prompt
-end
+#function fish_right_prompt
+#end
 
 # fasd support
 #function -e fish_preexec _run_fasd
@@ -46,9 +43,9 @@ source $HOME/.enhancd/fish/enhancd.fish
 alias z enhancd
 
 # iTerm2 integration
-#test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Autostart tmux
 if test -z $TMUX
-  tmux attach -t default; or tmux new -s default
+#  tmux attach -t default; or tmux new -s default
 end
