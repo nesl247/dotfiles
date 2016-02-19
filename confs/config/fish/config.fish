@@ -1,51 +1,45 @@
-# Path to your oh-my-fish.
-set -g OMF_PATH /Users/harrison/.local/share/omf
+fundle plugin 'tuvistavie/oh-my-fish-core'
+fundle plugin 'gretel/pkg-fzf'
+fundle plugin 'oh-my-fish/plugin-grc'
+#fundle plugin 'oh-my-fish/theme-robbyrussell'
+fundle plugin 'oh-my-fish/theme-gnuykeaj'
+fundle plugin 'tuvistavie/fish-completion-helpers'
+fundle plugin 'oh-my-fish/plugin-extract'
 
-# Load oh-my-fish configuration.
-source $OMF_PATH/init.fish
+fundle init
+
+# Temporary
+__fzf_init
 
 # Custom Path
-set -gx GOPATH $HOME/.go
-set -gx PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin ./vendor/bin ./bin $GOPATH/bin $PATH
-set -gx EDITOR (which vim)
-set -gx MANPATH /usr/local/opt/coreutils/libexec/gnuman /usr/local/share/man /usr/share/man
+set -x GOPATH $HOME/.go
+set -x PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts ~/.composer/vendor/bin $GOPATH/bin $PATH
+set -x EDITOR (which vim)
+set -x MANPATH /usr/local/opt/coreutils/libexec/gnuman /usr/local/share/man /usr/share/man
+set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
 
 # Sets LS back to default with GRC plugin
 set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
-alias php7 "/usr/local/opt/php70/bin/php"
 alias hcomposer "hhvm /usr/local/bin/composer"
-
-# Disable the right prompt
-#function fish_right_prompt
-#end
-
-# fasd support
-#function -e fish_preexec _run_fasd
-#  fasd --proc (fasd --sanitize "$argv") > "/dev/null" 2>&1
-#end
-
-#function z
-#  builtin cd (fasd -d -e 'printf %s' "$argv")
-#end
-
-#complete -c z --no-files -a (printf "%s " (fasd -ld))
 
 # Command history searching with ctrl + r
 function fish_user_key_bindings
-  bind \cr 'peco_select_history (commandline -b)'
+  bind \cr 'fh'
 end
 
 # enhancd
 set -gx ENHANCD_FILTER fzf
 source $HOME/.enhancd/fish/enhancd.fish
-alias z enhancd
+alias z cd::cd
 
 # iTerm2 integration
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+#test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-# Autostart tmux
-if test -z $TMUX
-#  tmux attach -t default; or tmux new -s default
+# Temporary
+if not available hub
+  echo "🐎  Please install 'hub' first!"
+else
+  eval (hub alias -s)
 end
