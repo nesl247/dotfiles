@@ -5,6 +5,7 @@ fundle plugin 'oh-my-fish/plugin-grc'
 fundle plugin 'oh-my-fish/theme-gnuykeaj'
 fundle plugin 'tuvistavie/fish-completion-helpers'
 fundle plugin 'oh-my-fish/plugin-extract'
+fundle plugin '0rax/fish-bd'
 
 fundle init
 
