@@ -39,7 +39,7 @@ alias z cd::cd
 #test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Temporary
-if not available hub
+if not type -q hub
   echo "🐎  Please install 'hub' first!"
 else
   eval (hub alias -s)
