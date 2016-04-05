@@ -1,0 +1,5 @@
+Host *
+    IdentityFile ~/.ssh/id_rsa
+
+Host *.linio-staging.com
+    User harrison.heck
