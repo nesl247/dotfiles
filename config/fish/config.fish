@@ -11,11 +11,11 @@ fundle plugin 'oh-my-fish/plugin-grc'
 #fundle plugin 'oh-my-fish/theme-robbyrussell'
 #fundle plugin 'oh-my-fish/theme-gnuykeaj'
 #fundle plugin 'oh-my-fish/theme-clearance'
-fundle plugin 'hasanozgan/theme-lambda'
+fundle plugin 'nesl247/theme-lambda'
 fundle plugin 'oh-my-fish/plugin-extract'
 fundle plugin '0rax/fish-bd'
 fundle plugin 'oh-my-fish/plugin-composer'
-#fundle plugin 'nesl247/pkg-hub'
+fundle plugin 'nesl247/pkg-hub'
 fundle plugin 'oh-my-fish/plugin-thefuck'
 
 fundle init
@@ -27,7 +27,7 @@ __fzf_init
 set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
-alias xphp "php -dzend_extension=/usr/local/opt/php70-xdebug/xdebug.so"
+#alias xphp "php -dzend_extension=/usr/local/opt/php70-xdebug/xdebug.so"
 
 # Command history searching with ctrl + r
 function fish_user_key_bindings
