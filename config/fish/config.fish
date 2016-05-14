@@ -29,6 +29,10 @@ set grcplugin_ls --indicator-style=classify --color -xh
 # Aliases
 #alias xphp "php -dzend_extension=/usr/local/opt/php70-xdebug/xdebug.so"
 alias g git
+alias gc "git c"
+alias gca "git ca"
+alias gcm "git cm"
+alias gcam "git cam"
 
 # Command history searching with ctrl + r
 function fish_user_key_bindings
