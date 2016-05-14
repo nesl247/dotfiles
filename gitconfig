@@ -45,6 +45,7 @@
 	ca = commit -a --verbose
 	cm = commit -m
 	cam = commit -am
+	s = status
 [github]
 	user = nesl247
 [ghi]

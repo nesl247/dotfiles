@@ -6,7 +6,7 @@ set -x EDITOR (which vim)
 set -x MANPATH /usr/local/opt/coreutils/libexec/gnuman /usr/local/share/man /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
 
-fundle plugin 'gretel/pkg-fzf'
+fundle plugin 'reinaldogranado/pkg-fzf'
 fundle plugin 'oh-my-fish/plugin-grc'
 #fundle plugin 'oh-my-fish/theme-robbyrussell'
 #fundle plugin 'oh-my-fish/theme-gnuykeaj'
@@ -20,9 +20,6 @@ fundle plugin 'oh-my-fish/plugin-thefuck'
 
 fundle init
 
-# Temporary
-__fzf_init
-
 # Sets LS back to default with GRC plugin
 set grcplugin_ls --indicator-style=classify --color -xh
 
@@ -33,6 +30,9 @@ alias gc "git c"
 alias gca "git ca"
 alias gcm "git cm"
 alias gcam "git cam"
+alias gs "git s"
+alias gdiff "git wdiff"
+alias glg "git lg"
 
 # Command history searching with ctrl + r
 function fish_user_key_bindings
