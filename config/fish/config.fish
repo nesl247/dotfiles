@@ -1,5 +1,5 @@
 # Custom Path
-set -x GOPATH $HOME/.go
+set -x GOPATH $HOME/.local/share/go
 set -x COMPOSER_HOME $HOME/.config/composer
 set -x PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts $GOPATH/bin $PATH
 set -x EDITOR (which vim)
@@ -41,3 +41,5 @@ alias z cd::cd
 
 # iTerm2 integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
