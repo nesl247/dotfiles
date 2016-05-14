@@ -41,6 +41,10 @@
 	lg = log --color --abbrev-commit --pretty=format:'%Cred%h%Creset - %Cgreen%cd (%cr) %C(bold blue)<%an>%Creset %n%w(72, 10, 10)%s%n%Creset' --date='format:%Y-%m-%d %H:%M:%S'
 	up = !git fetch && git rebase --autostash FETCH_HEAD
 	wdiff = diff --color-words
+  c = commit --verbose
+	ca = commit -a --verbose
+	cm = commit -m
+	cam = commit -am
 [github]
 	user = nesl247
 [ghi]
