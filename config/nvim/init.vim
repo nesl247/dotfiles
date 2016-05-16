@@ -5,7 +5,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug 'kien/ctrlp.vim'
   " airline is a better status line and a tab-bar for nvim.
   Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'phpvim/phpcd.vim'
   Plug 'vim-scripts/progressbar-widget' " used for showing the index progress
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -234,7 +235,7 @@ let mapleader="\<SPACE>"
     let g:airline_left_alt_sep = '|'
     let g:airline_right_sep = ' '
     let g:airline_right_alt_sep = '|'
-    let g:airline_theme= 'serene'
+    let g:airline_theme= 'dracula'
   " }
   " CtrlP {
     " Open file menu
