@@ -65,4 +65,5 @@ alias z cd::cd
 # iTerm2 integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
+# This is too slow so disabling for the moment.
+#brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
