@@ -1,16 +1,13 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Plugins {
-  " ctrl-p is a fuzzy file finder.
-  " Plug 'kien/ctrlp.vim'
-  " airline is a better status line and a tab-bar for nvim.
   Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'phpvim/phpcd.vim'
   Plug 'vim-scripts/progressbar-widget' " used for showing the index progress
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
+  Plug 'scrooloose/nerdcommenter'
 " }
 
 call plug#end()
@@ -29,13 +26,8 @@ let mapleader="\<SPACE>"
   set backspace=indent,eol,start      " Allow backspace over everything in insert mode.
   set complete-=i
   set smarttab
-
-  "set noautoindent        " I indent my code myself.
-  "set nocindent           " I indent my code myself.
   set smartindent        " Or I let the smartindent take care of it.
-
   set nrformats-=octal
-
   set ttimeout
   set ttimeoutlen=100
 " }
@@ -237,14 +229,6 @@ let mapleader="\<SPACE>"
     let g:airline_right_alt_sep = '|'
     let g:airline_theme= 'dracula'
   " }
-  " CtrlP {
-    " Open file menu
-    nnoremap <Leader>o :CtrlP<CR>
-    " Open buffer menu
-    nnoremap <Leader>b :CtrlPBuffer<CR>
-    " Open most recently used files
-    nnoremap <Leader>f :CtrlPMRUFiles<CR>
-  " }
 " }
 
 " vim:set ft=vim sw=2 ts=2:
@@ -254,10 +238,4 @@ autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
