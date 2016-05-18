@@ -47,6 +47,7 @@
 	cam = commit -am
 	s = status
 	ch = checkout
+	a = add
 [github]
 	user = nesl247
 [ghi]
