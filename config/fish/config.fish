@@ -49,13 +49,6 @@ set grcplugin_ls --indicator-style=classify --color -xh
 # Aliases
 #alias xphp "php -dzend_extension=/usr/local/opt/php70-xdebug/xdebug.so"
 alias g git
-alias gc "git c"
-alias gca "git ca"
-alias gcm "git cm"
-alias gcam "git cam"
-alias gs "git s"
-alias gdiff "git wdiff"
-alias glg "git lg"
 
 # enhancd
 set -gx ENHANCD_FILTER fzf
