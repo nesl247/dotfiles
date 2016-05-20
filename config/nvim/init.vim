@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Plugins {
-  Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+  Plug 'dracula/dracula-theme'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/progressbar-widget' " used for showing the index progress
