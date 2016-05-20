@@ -48,6 +48,7 @@
 	s = status
 	ch = checkout
 	a = add
+	p = push
 [github]
 	user = nesl247
 [ghi]
