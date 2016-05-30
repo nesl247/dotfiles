@@ -49,6 +49,7 @@
 	ch = checkout
 	a = add
 	p = push
+	aa = add -A
 [github]
 	user = nesl247
 [ghi]
