@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
   Plug 'scrooloose/nerdcommenter'
+  Plug 'terryma/vim-multiple-cursors'
 " }
 
 call plug#end()
