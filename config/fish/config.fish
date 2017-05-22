@@ -11,6 +11,10 @@ if test -d /usr/local/opt/coreutils/libexec/gnubin
   set -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 end
 
+if test -e /usr/libexec/java_home
+  set -X JAVA_HOME (/usr/libexec/java_home)
+end
+
 # Automatically install Fundle
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
