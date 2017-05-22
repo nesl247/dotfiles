@@ -42,13 +42,14 @@ end
 set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
-#alias xphp "php -dzend_extension=/usr/local/opt/php70-xdebug/xdebug.so"
 alias g git
 
 # enhancd
-set -gx ENHANCD_FILTER fzf
-source $HOME/.enhancd/fish/enhancd.fish
-alias z cd::cd
+if test -e $HOME/.enhancd/fish/enhancd.fish
+  set -gx ENHANCD_FILTER fzf
+  source $HOME/.enhancd/fish/enhancd.fish
+  alias z cd::cd
+end
 
 # iTerm2 integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
