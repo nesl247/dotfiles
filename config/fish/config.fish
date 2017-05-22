@@ -29,31 +29,14 @@ fundle plugin '0rax/fish-bd'
 fundle plugin 'oh-my-fish/plugin-composer'
 fundle plugin 'nesl247/pkg-hub'
 fundle plugin 'oh-my-fish/plugin-thefuck'
-fundle plugin 'oh-my-fish/plugin-argu'
-fundle plugin 'oh-my-fish/plugin-expand'
+fundle plugin 'oh-my-fish/plugin-bang-bang'
 
 fundle init
 
 # Command history searching with ctrl + r
 function fish_user_key_bindings
   bind \cr 'fh'
-
-  # Needed for plugin-expand to work
-  # Bind word expansion (and command completion) to the Tab key.
-  bind --sets-mode expand \t expand:execute
-
-  # During expansion, bind Backspace to revert the operation.
-  bind --mode expand --sets-mode default --key backspace expand:revert
-
-  # Bind Tab to cycle through the available expansions.
-  bind --mode expand \t expand:choose-next
-
-  # If the user enters any key other than Backspace, exit expand mode and passthrough keys to the default binding.
-  bind --mode expand --sets-mode default '' ''
 end
-
-# plugin-expand expansions
-expand-word -p '^s/..*/.*$' -e 'echo -n "$history[1]" | sed -e (commandline -t)/g'
 
 # Sets LS back to default with GRC plugin
 set grcplugin_ls --indicator-style=classify --color -xh
