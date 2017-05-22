@@ -1,10 +1,15 @@
 # Custom Path
 set -x GOPATH $HOME/.local/share/go
 set -x COMPOSER_HOME $HOME/.config/composer
-set -x PATH /usr/local/opt/coreutils/libexec/gnubin ~/Code/scripts $GOPATH/bin /usr/local/sbin $PATH
+set -x PATH ~/Code/scripts $GOPATH/bin /usr/local/sbin $PATH
 set -x EDITOR (which vim)
-set -x MANPATH /usr/local/opt/coreutils/libexec/gnuman /usr/local/share/man /usr/share/man
+set -x MANPATH /usr/local/share/man /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
+
+if test -d /usr/local/opt/coreutils/libexec/gnubin
+  set -x MANPATH /usr/local/opt/coreutils/libexec/gnubin $MANPATH
+  set -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+end
 
 # Automatically install Fundle
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
