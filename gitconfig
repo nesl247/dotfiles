@@ -49,7 +49,10 @@
 	ch = checkout
 	a = add
 	p = push
-	aa = add -A
+  aa = add -A
+  caa = commit -a --verbose --amend
+  cp = cherry-pick
+	setup-work = config user.email \"harrison.heck@linio.com\"
 [github]
 	user = nesl247
 [ghi]
