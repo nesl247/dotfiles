@@ -3,6 +3,3 @@ Host *
 
 Host *.linio-staging.com
     User harrison.heck
-
-Host jump.linio.com
-    User harrison.heck
