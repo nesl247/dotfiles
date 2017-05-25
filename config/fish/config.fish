@@ -12,7 +12,7 @@ if test -d /usr/local/opt/coreutils/libexec/gnubin
 end
 
 if test -e /usr/libexec/java_home
-  set -X JAVA_HOME (/usr/libexec/java_home)
+  set -x JAVA_HOME (/usr/libexec/java_home)
 end
 
 # Automatically install Fundle
