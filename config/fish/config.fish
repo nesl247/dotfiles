@@ -30,6 +30,7 @@ fundle plugin 'oh-my-fish/plugin-composer'
 fundle plugin 'nesl247/pkg-hub'
 fundle plugin 'oh-my-fish/plugin-thefuck'
 fundle plugin 'oh-my-fish/plugin-bang-bang'
+fundle plugin 'tuvistavie/fish-ssh-agent'
 
 fundle init
 
