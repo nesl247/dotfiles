@@ -13,6 +13,8 @@ end
 
 if test -e /usr/libexec/java_home
   set -x JAVA_HOME (/usr/libexec/java_home)
+else if test -e /usr/lib/jvm/java-8-oracle
+  set -x JAVA_HOME /usr/lib/jvm/java-8-oracle
 end
 
 # Automatically install Fundle
