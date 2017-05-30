@@ -32,7 +32,7 @@ fundle plugin 'oh-my-fish/plugin-composer'
 fundle plugin 'nesl247/pkg-hub'
 fundle plugin 'oh-my-fish/plugin-thefuck'
 fundle plugin 'oh-my-fish/plugin-bang-bang'
-fundle plugin 'tuvistavie/fish-ssh-agent'
+#fundle plugin 'tuvistavie/fish-ssh-agent'
 
 fundle init
 
@@ -59,3 +59,6 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 
 # This is too slow so disabling for the moment.
 #brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
+
+/usr/bin/keychain $HOME/.ssh/id_rsa
+test -e $HOME/.keychain ; and source $HOME/.keychain/*-fish
