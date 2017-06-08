@@ -56,6 +56,7 @@ set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
 alias g git
+alias clip clip.exe
 
 # enhancd
 if test -e $HOME/.enhancd/fish/enhancd.fish
