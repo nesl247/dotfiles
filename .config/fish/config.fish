@@ -63,6 +63,7 @@ set grcplugin_ls --indicator-style=classify --color -xh
 alias g git
 alias clip clip.exe
 alias lc 'colorls -r'
+alias dc docker-compose
 
 # enhancd
 if test -e $HOME/.enhancd/fish/enhancd.fish
