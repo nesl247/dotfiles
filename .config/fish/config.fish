@@ -1,4 +1,4 @@
-# Custom Path
+# Environment Variables
 set -x GOPATH $HOME/.local/share/go
 set -x COMPOSER_HOME $HOME/.config/composer
 set -x PATH $GOPATH/bin /usr/local/sbin (yarn global bin) $PATH
@@ -7,7 +7,8 @@ set -x MANPATH /usr/local/share/man /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
 
 if test -d /mnt/c/Windows/System32
-  set -x PATH /mnt/c/Windows/System32 $PATH
+  set -x DOCKER_HOST tcp://localhost:2375
+  set -x PATH $PATH /mnt/c/Windows/System32
 end
 
 if test -d $HOME/code/scripts
