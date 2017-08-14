@@ -9,6 +9,9 @@ set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --co
 if test -d /mnt/c/Windows/System32
   set -x DOCKER_HOST tcp://localhost:2375
   set -x PATH $PATH /mnt/c/Windows/System32
+
+  keychain $HOME/.ssh/id_rsa $HOME/.ssh/linio-live
+  test -e $HOME/.keychain ; and source $HOME/.keychain/*-fish
 end
 
 if test -d $HOME/code/scripts
@@ -78,5 +81,3 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 # This is too slow so disabling for the moment.
 #brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
 
-keychain $HOME/.ssh/id_rsa $HOME/.ssh/linio-live
-test -e $HOME/.keychain ; and source $HOME/.keychain/*-fish
