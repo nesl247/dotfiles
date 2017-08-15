@@ -54,11 +54,6 @@ fundle init
 #    ~/.powerline-shell.py $status --shell bare ^/dev/null
 #end
 
-# Command history searching with ctrl + r
-function fish_user_key_bindings
-  bind \cr 'fh'
-end
-
 # Sets LS back to default with GRC plugin
 set grcplugin_ls --indicator-style=classify --color -xh
 
