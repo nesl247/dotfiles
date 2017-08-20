@@ -1,0 +1,64 @@
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[user]
+	name = Harrison Heck
+	email = harrison.heck@gmail.com
+	useconfigonly = true
+[push]
+	default = simple
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+	wordRegex = \\w+|[^[:space:]]
+[hub]
+	protocol = git
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[core]
+	excludesfile = $HOME/.config/gitignore
+	pager = less -+F -+X
+[alias]
+	lg = log --color --abbrev-commit --pretty=format:'%Cred%h%Creset - %Cgreen%cd (%cr) %C(bold blue)<%an>%Creset %n%w(72, 10, 10)%s%n%Creset' --date='format:%Y-%m-%d %H:%M:%S'
+	up = !git fetch && git rebase --autostash FETCH_HEAD
+	wdiff = diff --color-words
+  c = commit --verbose
+	ca = commit -a --verbose
+	cm = commit -m
+	cam = commit -am
+	s = status
+	ch = checkout
+	a = add
+	p = push
+  aa = add -A
+  caa = commit -a --verbose --amend
+  cp = cherry-pick
+	setup-work = config user.email \"harrison.heck@linio.com\"
+[github]
+	user = nesl247
+[ghi]
+	token = !security find-internet-password -a nesl247 -s github.com -l 'ghi token' -w
+	pager = less -FRX
+[color]
+	ui = auto
+[pager]
+[pager]
