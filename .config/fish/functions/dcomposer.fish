@@ -1,9 +1,9 @@
 function dcomposer
     docker run \
-	--tty \
+      	--tty \
         --interactive \
         --rm \
         --volume (pwd):/app \
-	--volume composer-cache:/tmp/cache \
+      	--volume composer-cache:/tmp \
         composer $argv
 end
