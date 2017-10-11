@@ -31,15 +31,16 @@
 [credential]
 	helper = osxkeychain
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
 	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [core]
 	excludesfile = ~/.config/gitignore
 	pager = less -+F -+X
 [alias]
 	lg = log --color --abbrev-commit --pretty=format:'%Cred%h%Creset - %Cgreen%cd (%cr) %C(bold blue)<%an>%Creset %n%w(72, 10, 10)%s%n%Creset' --date='format:%Y-%m-%d %H:%M:%S'
-	up = !git fetch && git rebase --autostash FETCH_HEAD
+	up = pull
 	wdiff = diff --color-words
   c = commit --verbose
 	ca = commit -a --verbose
@@ -62,3 +63,7 @@
 	ui = auto
 [pager]
 [pager]
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
