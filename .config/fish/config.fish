@@ -51,6 +51,7 @@ fundle plugin 'fishgretel/pkg-hub'
 fundle plugin 'oh-my-fish/plugin-thefuck'
 fundle plugin 'oh-my-fish/plugin-bang-bang'
 #fundle plugin 'tuvistavie/fish-ssh-agent'
+fundle plugin 'fisherman/pipenv'
 
 fundle init
 
