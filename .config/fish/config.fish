@@ -81,3 +81,8 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 # This is too slow so disabling for the moment.
 #brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
 
+if type -q lab
+  alias git lab
+else
+  echo "🐎  Please install lab' first!"
+end
