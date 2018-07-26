@@ -49,21 +49,19 @@ fundle plugin '0rax/fish-bd'
 fundle plugin 'oh-my-fish/plugin-composer'
 fundle plugin 'fishgretel/pkg-hub'
 fundle plugin 'oh-my-fish/plugin-thefuck'
-fundle plugin 'oh-my-fish/plugin-bang-bang'
+#fundle plugin 'oh-my-fish/plugin-bang-bang'
 #fundle plugin 'tuvistavie/fish-ssh-agent'
-#fundle plugin 'fisherman/pipenv'
+#fundle plugin 'ovidner/pipenv'
+#fundle plugin 'MaxMilton/pure'
 
 fundle init
-
-#function fish_prompt
-#    ~/.powerline-shell.py $status --shell bare ^/dev/null
-#end
 
 # Sets LS back to default with GRC plugin
 set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
 alias g git
+alias gt 'gittower .'
 alias clip clip.exe
 alias lc 'colorls -r'
 alias dc docker-compose
@@ -78,11 +76,3 @@ end
 # iTerm2 integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-# This is too slow so disabling for the moment.
-#brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
-
-if type -q lab
-  alias git lab
-else
-  echo "🐎  Please install lab' first!"
-end

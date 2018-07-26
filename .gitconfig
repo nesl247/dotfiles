@@ -6,6 +6,7 @@
 	name = Harrison Heck
 	email = harrison.heck@gmail.com
 	useconfigonly = true
+	signingkey = 798418E1C45C99E4
 [push]
 	default = simple
 [filter "hawser"]
@@ -68,3 +69,7 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg
