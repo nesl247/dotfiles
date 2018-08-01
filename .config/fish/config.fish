@@ -53,6 +53,7 @@ fundle plugin 'oh-my-fish/plugin-thefuck'
 #fundle plugin 'tuvistavie/fish-ssh-agent'
 #fundle plugin 'ovidner/pipenv'
 #fundle plugin 'MaxMilton/pure'
+#fundle plugin 'nesl247/pure' --url 'https://github.com/nesl247/pure.git#feature/fundle-support'
 
 fundle init
 
