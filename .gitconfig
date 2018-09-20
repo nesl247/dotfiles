@@ -20,6 +20,7 @@
 [diff]
 	wordRegex = \\w+|[^[:space:]]
 	renameLimit = 2000
+	tool = Kaleidoscope
 [hub]
 	protocol = git
 [credential]
@@ -48,6 +49,7 @@
   caa = commit -a --verbose --amend
   cp = cherry-pick
 	setup-work = config user.email \"harrison.heck@linio.com\"
+	cza = cz -a
 [github]
 	user = nesl247
 [ghi]
@@ -56,6 +58,8 @@
 [color]
 	ui = auto
 [pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [pull]
 	rebase = true
 [rebase]
@@ -64,3 +68,10 @@
 	gpgsign = true
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
