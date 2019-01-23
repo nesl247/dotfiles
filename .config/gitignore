@@ -4,3 +4,5 @@ gems.tags
 .idea
 .DS_Store
 .history
+/.virtualgo
+/.vscode
