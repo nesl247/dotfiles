@@ -6,3 +6,4 @@ gems.tags
 .history
 /.virtualgo
 /.vscode
+/.tool-versions

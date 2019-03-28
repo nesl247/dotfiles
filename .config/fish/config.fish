@@ -1,12 +1,13 @@
 # Environment Variables
 set -x GOPATH $HOME/.local/share/go
 set -x COMPOSER_HOME $HOME/.config/composer
-set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin $PATH
+set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin /usr/local/opt/python3/bin /usr/local/opt/python2/bin /usr/local/opt/ruby/bin $PATH
 set -x EDITOR '/usr/local/bin/code -w'
 set -x MANPATH /usr/local/share/man /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
 set -x BAT_PAGER $HOME/code/scripts/bat_pager
 set -x KOPS_STATE_STORE s3://linio-kubernetes
+set -x VAULT_ADDR https://vault.linio.com
 
 if type -q yarn
     set -x PATH (yarn global bin) $PATH
@@ -50,6 +51,7 @@ fundle plugin 'oh-my-fish/theme-bobthefish'
 #fundle plugin 'rafaelrinaldi/pure'
 #fundle plugin 'matchai/spacefish'
 fundle plugin 'evanlucas/fish-kubectl-completions'
+fundle plugin 'oh-my-fish/plugin-aws'
 
 fundle init
 
@@ -73,4 +75,4 @@ source $HOME/.config/fish/completions/kubernetes-tools.fish
 
 #command -v vg >/dev/null 2>&1 and vg eval --shell fish | source
 
-source /usr/local/opt/asdf/asdf.fish
+#source /usr/local/opt/asdf/asdf.fish
