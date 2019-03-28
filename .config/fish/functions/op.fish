@@ -1,14 +1,20 @@
+function __op_get_tmp_file
+    echo ~/.config/fish/op.cache
+end
+
 function __get_code_directories
-    set desc (_ "Project")
-    set -l tmpFile /tmp/fish-op-cache
+    set -l tmpFile (__op_get_tmp_file)
     set -l array dirs
 
     if test -f $tmpFile
         read -a dirs <$tmpFile
     else
+        # These are your project directories
         for dir in ~/code/* ~/code/linio/*
             set -l dirName (basename $dir)
 
+            # I keep all of my linio project under a sub-directory
+            # This will exclude that sub directory itself from being an option
             if test $dirName = 'linio'
                 continue
             end
@@ -21,14 +27,23 @@ function __get_code_directories
         echo $dirs >$tmpFile
     end
 
+    set desc (_ "Project")
     printf "%s\t$desc\n" $dirs
+end
+
+function __op_get_project_dir -a project
+    if test -d ~/code/$project
+        echo $project
+    else if test -d ~/code/linio/$project
+        echo linio/$project
+    end
 end
 
 function op --description "Open a project"
     set -l edit false
     set -l tower false
     set -l project
-    set -l tmpFile /tmp/fish-op-cache
+    set -l tmpFile (__op_get_tmp_file)
 
     for option in $argv
         switch "$option"
@@ -37,33 +52,41 @@ function op --description "Open a project"
             case -e --foo
                 set edit true
             case \*
-                if test -d ~/code/$option
-                    set project $option
-                else if test -d ~/code/linio/$option
-                    set project linio/$option
-                else
-                    printf "error: Unknown option %s\n" $option
-                    return 1
+                set project (__op_get_project_dir $option)
+
+                if test -z $project
+                    set -l autocompletedDir (string split \t -- (complete --do-complete="op $option"))
+
+                    if set -q autocompletedDir[1]
+                        set project (__op_get_project_dir $autocompletedDir[1])
+                    end
+
+                    if test -z $project
+                        printf "error: Unknown option/project %s\n" $option
+                        return 1
+                    end
                 end
         end
-    end
 
-    read -a dirs <$tmpFile
+        # Update order of auto completions based on usage
+        read -a dirs <$tmpFile
 
-    if set -l index (contains -i -- $option $dirs)
-        set -e dirs[$index]
-        set -p dirs $option
-    end
+        if set -l index (contains -i -- $option $dirs)
+            set -e dirs[$index]
+            set -p dirs $option
+        end
 
-    echo $dirs >$tmpFile
+        echo $dirs >$tmpFile
 
-    cd ~/code/$project
+        # Open Project (op) begins here
+        cd ~/code/$project
 
-    if eval $tower
-        open -g ~/code/$project -a /Applications/Tower.app
-    end
+        if eval $tower
+            open -g ~/code/$project -a /Applications/Tower.app
+        end
 
-    if eval $edit
-        code .
+        if eval $edit
+            code .
+        end
     end
 end
