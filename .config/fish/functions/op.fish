@@ -2,11 +2,20 @@ function __op_get_tmp_file
     echo ~/.config/fish/op.cache
 end
 
-function __get_code_directories
+function __get_code_directories -a forceUpdate
     set -l tmpFile (__op_get_tmp_file)
     set -l array dirs
 
-    if test -f $tmpFile
+    if test -z $forceUpdate
+        set forceUpdate false
+    end
+
+    if eval $forceUpdate && test -f $tmpFile
+        echo "Reading from cache during update"
+        read -a dirs <$tmpFile
+    end
+
+    if test -f $tmpFile && not eval $forceUpdate
         read -a dirs <$tmpFile
     else
         # These are your project directories
@@ -20,7 +29,9 @@ function __get_code_directories
             end
 
             if test -d $dir
-                set -a dirs $dirName
+                if not contains $dirName $dirs
+                    set -a dirs $dirName
+                end
             end
         end
 
@@ -51,6 +62,9 @@ function op --description "Open a project"
                 set tower true
             case -e --foo
                 set edit true
+            case -u --update
+                __get_code_directories true 1>/dev/null
+                return
             case \*
                 set project (__op_get_project_dir $option)
 
@@ -71,7 +85,7 @@ function op --description "Open a project"
         # Update order of auto completions based on usage
         read -a dirs <$tmpFile
 
-        if set -l index (contains -i -- $option $dirs)
+        if set -l index (contains -i $option $dirs)
             set -e dirs[$index]
             set -p dirs $option
         end
