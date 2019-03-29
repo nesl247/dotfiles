@@ -52,55 +52,63 @@ end
 
 function op --description "Open a project"
     set -l edit false
-    set -l tower false
+    set -l gitClient false
     set -l project
+    set -l projectDir
     set -l tmpFile (__op_get_tmp_file)
 
     for option in $argv
         switch "$option"
-            case -t --tower
-                set tower true
-            case -e --foo
+            case -g --git-client
+                set gitClient true
+            case -e --edit
                 set edit true
             case -u --update
                 __get_code_directories true 1>/dev/null
                 return
             case \*
-                set project (__op_get_project_dir $option)
+                set projectDir (__op_get_project_dir $option)
 
-                if test -z $project
+                if test -z $projectDir
                     set -l autocompletedDir (string split \t -- (complete --do-complete="op $option"))
 
                     if set -q autocompletedDir[1]
-                        set project (__op_get_project_dir $autocompletedDir[1])
-                    end
-
-                    if test -z $project
-                        printf "error: Unknown option/project %s\n" $option
-                        return 1
+                        set projectDir (__op_get_project_dir $autocompletedDir[1])
                     end
                 end
+
+                if test -z $projectDir
+                    echo "error: Project not found."
+                    return 1
+                end
         end
+    end
 
-        # Update order of auto completions based on usage
-        read -a dirs <$tmpFile
+    if test -z $projectDir
+        echo "error: You must specify a project!"
+        return 1
+    end
 
-        if set -l index (contains -i $option $dirs)
-            set -e dirs[$index]
-            set -p dirs $option
-        end
+    set project (basename $projectDir)
 
-        echo $dirs >$tmpFile
+    # Update order of auto completions based on usage
+    read -a dirs <$tmpFile
 
-        # Open Project (op) begins here
-        cd ~/code/$project
+    if set -l index (contains -i $project $dirs)
+        set -e dirs[$index]
+        set -p dirs $project
+    end
 
-        if eval $tower
-            open -g ~/code/$project -a /Applications/Tower.app
-        end
+    echo $dirs >$tmpFile
 
-        if eval $edit
-            code .
-        end
+    # Open Project (op) begins here
+    cd ~/code/$projectDir
+
+    if eval $gitClient
+        open -g ~/code/$projectDir -a /Applications/Tower.app
+    end
+
+    if eval $edit
+        eval "$EDITOR ~/code/$projectDir"
     end
 end
