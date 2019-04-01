@@ -35,7 +35,7 @@ set SPACEFISH_PROMPT_ORDER time user dir host git aws kubecontext exec_time line
 fundle plugin 'reinaldogranado/pkg-fzf'
 fundle plugin 'oh-my-fish/plugin-grc'
 fundle plugin 'oh-my-fish/plugin-extract'
-fundle plugin '0rax/fish-bd'
+#fundle plugin '0rax/fish-bd'
 fundle plugin 'oh-my-fish/plugin-composer'
 fundle plugin 'fishgretel/pkg-hub'
 #fundle plugin 'oh-my-fish/plugin-thefuck'
@@ -73,6 +73,4 @@ and source {$HOME}/.iterm2_shell_integration.fish
 # Kubernetes Tools fish completion start
 source $HOME/.config/fish/completions/kubernetes-tools.fish
 
-#command -v vg >/dev/null 2>&1 and vg eval --shell fish | source
-
-#source /usr/local/opt/asdf/asdf.fish
+direnv hook fish | source

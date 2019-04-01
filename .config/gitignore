@@ -7,3 +7,4 @@ gems.tags
 /.virtualgo
 /.vscode
 /.tool-versions
+.envrc
