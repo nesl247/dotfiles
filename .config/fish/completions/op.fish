@@ -1,1 +1,1 @@
-complete --command op --no-files --keep-order --arguments '(__op_get_projects)'
+/Users/harrison/code/op/completions/op.fish

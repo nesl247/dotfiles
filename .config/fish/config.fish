@@ -8,6 +8,8 @@ set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --co
 set -x BAT_PAGER $HOME/code/scripts/bat_pager
 set -x KOPS_STATE_STORE s3://linio-kubernetes
 set -x VAULT_ADDR https://vault.linio.com
+set -x GIT_CLIENT /Applications/Tower.app
+set -x OP_PROJECT_DIRS $HOME/code $HOME/code/linio
 
 if type -q yarn
     set -x PATH (yarn global bin) $PATH
