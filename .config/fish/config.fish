@@ -48,12 +48,12 @@ fundle plugin 'fishgretel/pkg-hub'
 #fundle plugin 'oh-my-fish/theme-gnuykeaj'
 #fundle plugin 'oh-my-fish/theme-clearance'
 #fundle plugin 'nesl247/fish-theme-dracula'
-fundle plugin 'oh-my-fish/theme-bobthefish'
-#fundle plugin 'MaxMilton/pure'
-#fundle plugin 'rafaelrinaldi/pure'
+# fundle plugin 'oh-my-fish/theme-bobthefish'
+fundle plugin 'rafaelrinaldi/pure'
 #fundle plugin 'matchai/spacefish'
 fundle plugin 'evanlucas/fish-kubectl-completions'
 fundle plugin 'oh-my-fish/plugin-aws'
+fundle plugin 'jorgebucaran/fishtape'
 
 fundle init
 
