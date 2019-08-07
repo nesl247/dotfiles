@@ -16,7 +16,7 @@ if type -q yarn
 end
 
 if test -e /usr/libexec/java_home
-    set -x JAVA_HOME /usr/libexec/java_home
+    set -x JAVA_HOME (/usr/libexec/java_home)
 else if test -e /usr/lib/jvm/java-8-oracle
     set -x JAVA_HOME /usr/lib/jvm/java-8-oracle
 end
@@ -47,7 +47,7 @@ fundle plugin 'fishgretel/pkg-hub'
 #fundle plugin 'oh-my-fish/theme-robbyrussell'
 #fundle plugin 'oh-my-fish/theme-gnuykeaj'
 #fundle plugin 'oh-my-fish/theme-clearance'
-#fundle plugin 'nesl247/fish-theme-dracula'
+# fundle plugin 'nesl247/fish-theme-dracula'
 # fundle plugin 'oh-my-fish/theme-bobthefish'
 fundle plugin 'rafaelrinaldi/pure'
 #fundle plugin 'matchai/spacefish'
@@ -69,8 +69,13 @@ alias dc docker-compose
 alias cat bat
 
 # iTerm2 integration
-test -e {$HOME}/.iterm2_shell_integration.fish
-and source {$HOME}/.iterm2_shell_integration.fish
+if test -e {$HOME}/.iterm2_shell_integration.fish
+    source {$HOME}/.iterm2_shell_integration.fish
+    function iterm2_print_user_vars
+        set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
+        iterm2_set_user_var gitBranch "$git_branch"
+    end
+end
 
 # Kubernetes Tools fish completion start
 source $HOME/.config/fish/completions/kubernetes-tools.fish
