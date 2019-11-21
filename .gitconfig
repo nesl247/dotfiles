@@ -81,3 +81,5 @@ cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$RE
 version = 2
 [diff "ansible-vault"]
 	textconv = ansible-vault view
+[url "git@github.com:"]
+	insteadOf = https://github.com/

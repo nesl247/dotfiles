@@ -1,13 +1,13 @@
 # Environment Variables
 set -x GOPATH $HOME/.local/share/go
 set -x COMPOSER_HOME $HOME/.config/composer
-set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin /usr/local/opt/python3/bin /usr/local/opt/python2/bin /usr/local/opt/ruby/bin $PATH
+set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/curl-openssl/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin /usr/local/opt/python/libexec/bin /usr/local/opt/ruby/bin $PATH
 set -x EDITOR '/usr/local/bin/code'
 set -x MANPATH /usr/local/share/man /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
 set -x BAT_PAGER $HOME/code/scripts/bat_pager
 set -x KOPS_STATE_STORE s3://linio-kubernetes
-set -x VAULT_ADDR https://vault.linio.com
+set -x VAULT_ADDR https://vault.linio-support.com
 set -x GIT_CLIENT /Applications/Tower.app
 set -x OP_PROJECT_DIRS $HOME/code $HOME/code/linio
 
@@ -39,7 +39,7 @@ fundle plugin 'oh-my-fish/plugin-grc'
 fundle plugin 'oh-my-fish/plugin-extract'
 #fundle plugin '0rax/fish-bd'
 fundle plugin 'oh-my-fish/plugin-composer'
-fundle plugin 'fishgretel/pkg-hub'
+#fundle plugin 'fishgretel/pkg-hub'
 #fundle plugin 'oh-my-fish/plugin-thefuck'
 #fundle plugin 'oh-my-fish/plugin-bang-bang'
 #fundle plugin 'tuvistavie/fish-ssh-agent'
@@ -62,6 +62,7 @@ set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
 alias g git
+alias git hub
 alias gt 'gittower'
 alias clip clip.exe
 alias lc 'colorls -r'
