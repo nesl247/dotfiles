@@ -1,7 +1,7 @@
 # Environment Variables
 set -x GOPATH $HOME/.local/share/go
 set -x COMPOSER_HOME $HOME/.config/composer
-set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/curl-openssl/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin /usr/local/opt/python/libexec/bin /usr/local/opt/ruby/bin $PATH
+set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/curl-openssl/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin /usr/local/opt/python/libexec/bin /usr/local/lib/ruby/gems/2.7.0/bin /usr/local/opt/ruby/bin $PATH
 set -x EDITOR '/usr/local/bin/code'
 set -x MANPATH /usr/local/share/man /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
@@ -68,6 +68,7 @@ alias clip clip.exe
 alias lc 'colorls -r'
 alias dc docker-compose
 alias cat bat
+alias 1p /usr/local/bin/op
 
 # iTerm2 integration
 if test -e {$HOME}/.iterm2_shell_integration.fish
@@ -82,3 +83,6 @@ end
 source $HOME/.config/fish/completions/kubernetes-tools.fish
 
 direnv hook fish | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/harrison/google-cloud-sdk/path.fish.inc' ]; . '/Users/harrison/google-cloud-sdk/path.fish.inc'; end

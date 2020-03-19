@@ -6,9 +6,9 @@ smudge = git media smudge %f
 name = Harrison Heck
 email = harrison.heck@gmail.com
 useconfigonly = true
-signingkey = 798418E1C45C99E4
+	signingkey = DCDEA94D12589CA9AE306127798418E1C45C99E4
 [push]
-default = simple
+	default = current
 [filter "hawser"]
 clean = git hawser clean %f
 smudge = git hawser smudge %f
@@ -32,7 +32,7 @@ smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 [core]
 excludesfile = ~/.config/gitignore
-pager = less -+F -+X
+	pager = delta --dark --theme \"Monokai Extended Bright\"
 	editor = /usr/local/bin/code -w
 [alias]
 lg = log --color --abbrev-commit --pretty=format:'%Cred%h%Creset - %Cgreen%cd (%cr) %C(bold blue)<%an>%Creset %n%w(72, 10, 10)%s%n%Creset' --date='format:%Y-%m-%d %H:%M:%S'
@@ -52,6 +52,7 @@ cp = cherry-pick
 setup-work = config user.email \"harrison.heck@linio.com\"
 cza = cz -a
 	pf = push --force-with-lease
+	setup-personal = config user.email \"harrison.heck@gmail.com\"
 [github]
 user = nesl247
 [ghi]
@@ -59,9 +60,6 @@ token = !security find-internet-password -a nesl247 -s github.com -l 'ghi token'
 pager = less -FRX
 [color]
 ui = auto
-[pager]
-diff = diff-so-fancy | less --tabs=1,5 -RFX
-show = diff-so-fancy | less --tabs=1,5 -RFX
 [pull]
 rebase = true
 [rebase]
@@ -69,7 +67,7 @@ autoStash = true
 [commit]
 gpgsign = true
 [gpg]
-program = /usr/local/MacGPG2/bin/gpg
+	program = /usr/local/MacGPG2/bin/gpg2
 [mergetool "Kaleidoscope"]
 cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 trustexitcode = true
