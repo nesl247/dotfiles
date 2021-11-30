@@ -1,18 +1,35 @@
 # Environment Variables
-set -x GOPATH $HOME/.local/share/go
+set -x GOPATH $HOME/go
 set -x COMPOSER_HOME $HOME/.config/composer
-set -x PATH $HOME/code/scripts $HOME/.poetry/bin $GOPATH/bin /usr/local/opt/curl-openssl/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/sbin /usr/local/opt/python/libexec/bin /usr/local/lib/ruby/gems/2.7.0/bin /usr/local/opt/ruby/bin $PATH
-set -x EDITOR '/usr/local/bin/code'
+set -x EDITOR "idea -w -e"
 set -x MANPATH /usr/local/share/man /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/share/man
 set -x FZF_DEFAULT_OPTS '--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81 --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
-set -x BAT_PAGER $HOME/code/scripts/bat_pager
-set -x KOPS_STATE_STORE s3://linio-kubernetes
-set -x VAULT_ADDR https://vault.linio-support.com
-set -x GIT_CLIENT /Applications/Tower.app
-set -x OP_PROJECT_DIRS $HOME/code $HOME/code/linio
+set -x BAT_PAGER $HOME/code/nesl247/scripts/bat_pager
+set -x OP_PROJECT_DIRS $HOME/code $HOME/code/linio $HOME/code/nesl247 $HOME/code/satws
+set -x BAT_THEME Dracula
+set -x COMPOSE_DOCKER_CLI_BUILD 1
+set -x PULUMI_K8S_ENABLE_DRY_RUN 1
+
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.krew/bin
+fish_add_path /usr/local/opt/ruby/bin
+fish_add_path /usr/local/lib/ruby/gems/2.7.0/bin
+fish_add_path /usr/local/lib/ruby/gems/3.0.0/bin
+fish_add_path $GOPATH/bin
+fish_add_path /usr/local/opt/python/libexec/bin
+fish_add_path /usr/local/opt/findutils/libexec/gnubin
+fish_add_path /usr/local/opt/coreutils/libexec/gnubin
+fish_add_path /usr/local/opt/gnu-sed/libexec/gnubin
+#fish_add_path /usr/local/opt/curl-openssl/bin
+fish_add_path /usr/local/opt/make/libexec/gnubin
+fish_add_path $HOME/.poetry/bin
+fish_add_path $HOME/code/nesl247/scripts
+
+set -g -x "CLOUDSDK_PYTHON" "/usr/local/opt/python@3.8/libexec/bin/python"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 if type -q yarn
-    set -x PATH (yarn global bin) $PATH
+    fish_add_path (yarn global bin)
 end
 
 if test -e /usr/libexec/java_home
@@ -26,34 +43,14 @@ if not functions -q fundle
     eval (curl -sfL https://git.io/fundle-install)
 end
 
-# bobthefish
-set -g theme_display_ruby no
-set -g theme_display_k8s_context yes
-set -g theme_display_git_master_branch yes
-
-# spacefish
-set SPACEFISH_PROMPT_ORDER time user dir host git aws kubecontext exec_time line_sep exit_code char
-
 fundle plugin 'reinaldogranado/pkg-fzf'
 fundle plugin 'oh-my-fish/plugin-grc'
 fundle plugin 'oh-my-fish/plugin-extract'
-#fundle plugin '0rax/fish-bd'
 fundle plugin 'oh-my-fish/plugin-composer'
-#fundle plugin 'fishgretel/pkg-hub'
-#fundle plugin 'oh-my-fish/plugin-thefuck'
-#fundle plugin 'oh-my-fish/plugin-bang-bang'
-#fundle plugin 'tuvistavie/fish-ssh-agent'
-#fundle plugin 'ovidner/pipenv'
-#fundle plugin 'oh-my-fish/theme-robbyrussell'
-#fundle plugin 'oh-my-fish/theme-gnuykeaj'
-#fundle plugin 'oh-my-fish/theme-clearance'
-# fundle plugin 'nesl247/fish-theme-dracula'
-# fundle plugin 'oh-my-fish/theme-bobthefish'
-fundle plugin 'rafaelrinaldi/pure'
-#fundle plugin 'matchai/spacefish'
-fundle plugin 'evanlucas/fish-kubectl-completions'
 fundle plugin 'oh-my-fish/plugin-aws'
-fundle plugin 'jorgebucaran/fishtape'
+#fundle plugin 'jorgebucaran/fishtape'
+fundle plugin 'fishpkg/fish-humanize-duration'
+fundle plugin 'franciscolourenco/done'
 
 fundle init
 
@@ -62,13 +59,9 @@ set grcplugin_ls --indicator-style=classify --color -xh
 
 # Aliases
 alias g git
-alias git hub
 alias gt 'gittower'
-alias clip clip.exe
-alias lc 'colorls -r'
-alias dc docker-compose
+alias lc 'colorls --dark'
 alias cat bat
-alias 1p /usr/local/bin/op
 
 # iTerm2 integration
 if test -e {$HOME}/.iterm2_shell_integration.fish
@@ -86,3 +79,7 @@ direnv hook fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/harrison/google-cloud-sdk/path.fish.inc' ]; . '/Users/harrison/google-cloud-sdk/path.fish.inc'; end
+
+_kn init --shell fish | source
+
+starship init fish | source
