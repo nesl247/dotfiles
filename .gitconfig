@@ -30,7 +30,7 @@ clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 [core]
-excludesfile = ~/.config/gitignore
+	excludesfile = /Users/alexander/.config/gitignore
 	pager = delta --dark --theme \"Monokai Extended Bright\"
 	editor = idea --wait -e
 [alias]
@@ -52,6 +52,7 @@ setup-work = config user.email \"harrison.heck@linio.com\"
 cza = cz -a
 	pf = push --force-with-lease
 	setup-personal = config user.email \"harrison.heck@gmail.com\"
+	sync = delete-merged-branches --effort=3
 [github]
 user = nesl247
 [ghi]

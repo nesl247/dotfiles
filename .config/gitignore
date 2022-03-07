@@ -9,3 +9,4 @@ gems.tags
 /.tool-versions
 .envrc
 *.iml
+/docker-compose.virtiofs.yml
