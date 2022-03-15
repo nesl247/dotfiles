@@ -31,7 +31,7 @@ smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 [core]
 	excludesfile = /Users/alexander/.config/gitignore
-	pager = delta --dark --theme \"Monokai Extended Bright\"
+	pager = delta --dark --syntax-theme \"Monokai Extended Bright\"
 	editor = idea --wait -e
 [alias]
 lg = log --color --abbrev-commit --pretty=format:'%Cred%h%Creset - %Cgreen%cd (%cr) %C(bold blue)<%an>%Creset %n%w(72, 10, 10)%s%n%Creset' --date='format:%Y-%m-%d %H:%M:%S'
@@ -81,3 +81,5 @@ version = 2
 	textconv = ansible-vault view
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[init]
+	defaultBranch = main

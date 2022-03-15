@@ -12,6 +12,7 @@ set -x PULUMI_K8S_ENABLE_DRY_RUN 1
 set -x MCFLY_FUZZY 2
 set -x MCFLY_RESULTS 50
 set -x MCFLY_INTERFACE_VIEW BOTTOM
+set -Ua fish_features ampersand-nobg-in-token qmark-noglob
 
 fish_add_path /opt/homebrew/bin
 fish_add_path $HOME/.cargo/bin
@@ -44,7 +45,7 @@ end
 fundle plugin 'oh-my-fish/plugin-grc'
 fundle plugin 'oh-my-fish/plugin-extract'
 fundle plugin 'oh-my-fish/plugin-composer'
-fundle plugin 'oh-my-fish/plugin-aws'
+#fundle plugin 'oh-my-fish/plugin-aws'
 #fundle plugin 'jorgebucaran/fishtape'
 fundle plugin 'fishpkg/fish-humanize-duration'
 fundle plugin 'franciscolourenco/done'
@@ -70,11 +71,11 @@ if test -e {$HOME}/.iterm2_shell_integration.fish
 end
 
 # Kubernetes Tools fish completion start
-source $HOME/.config/fish/completions/kubernetes-tools.fish
+#source $HOME/.config/fish/completions/kubernetes-tools.fish
 
 direnv hook fish | source
 
-_kn init --shell fish | source
+#_kn init --shell fish | source
 
 mcfly init fish | source
 
