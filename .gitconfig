@@ -1,18 +1,10 @@
-[filter "media"]
-required = true
-clean = git media clean %f
-smudge = git media smudge %f
 [user]
-	name = Alexander Kim
-	useConfigOnly = false
-	signingkey = DCDEA94D12589CA9AE306127798418E1C45C99E4
-	email = alex@kim.family
+name = Alexander Kim
+useConfigOnly = false
+signingkey = DCDEA94D12589CA9AE306127798418E1C45C99E4
+email = alex@kim.family
 [push]
-	default = current
-[filter "hawser"]
-clean = git hawser clean %f
-smudge = git hawser smudge %f
-required = true
+default = current
 [difftool]
 prompt = false
 [mergetool]
@@ -20,66 +12,42 @@ prompt = false
 [diff]
 wordRegex = \\w+ | [^[:space:]]
 renameLimit = 2000
-[hub]
-protocol = git
+	external = difft
 [credential]
 helper = osxkeychain
-[filter "lfs"]
-required = true
-clean = git-lfs clean -- %f
-smudge = git-lfs smudge -- %f
-process = git-lfs filter-process
 [core]
-	excludesfile = /Users/alexander/.config/gitignore
-	pager = delta --dark --syntax-theme \"Monokai Extended Bright\"
-	editor = idea --wait -e
+excludesfile = /Users/alexander/.config/gitignore
+pager = delta --dark --syntax-theme \"Monokai Extended Bright\"
+editor = idea --wait -e
 [alias]
 lg = log --color --abbrev-commit --pretty=format:'%Cred%h%Creset - %Cgreen%cd (%cr) %C(bold blue)<%an>%Creset %n%w(72, 10, 10)%s%n%Creset' --date='format:%Y-%m-%d %H:%M:%S'
 up = pull
-wdiff = diff --color-words
 c = commit --verbose
 ca = commit -a --verbose
 caa = commit --amend --verbose
-cm = commit -m
-cam = commit -am
 co = checkout
 s = status
 a = add
 aa = add -A
 p = push
 cp = cherry-pick
-setup-work = config user.email \"harrison.heck@linio.com\"
-cza = cz -a
-	pf = push --force-with-lease
-	setup-personal = config user.email \"harrison.heck@gmail.com\"
-	sync = delete-merged-branches --effort=3
+pf = push --force-with-lease
+sync = delete-merged-branches --effort=3
 [github]
 user = nesl247
-[ghi]
-token = !security find-internet-password -a nesl247 -s github.com -l 'ghi token' -w
-pager = less -FRX
 [color]
 ui = auto
 [pull]
-	rebase = true
+rebase = true
 [rebase]
 autoStash = true
 [commit]
 gpgsign = true
 [gpg]
-	program = /usr/local/MacGPG2/bin/gpg2
-[mergetool "Kaleidoscope"]
-cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-trustexitcode = true
-[merge]
-tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+program = /usr/local/MacGPG2/bin/gpg2
 [protocol]
 version = 2
-[diff "ansible-vault"]
-	textconv = ansible-vault view
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+insteadOf = https://github.com/
 [init]
-	defaultBranch = main
+defaultBranch = main
