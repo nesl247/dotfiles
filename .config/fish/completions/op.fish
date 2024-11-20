@@ -1,1 +1,0 @@
-/Users/alexander/code/nesl247/op/completions/op.fish

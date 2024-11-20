@@ -1,7 +1,7 @@
-tags
 gems.tags
 .hhconfig
 .idea
+.idea.bak
 .DS_Store
 .history
 /.virtualgo
@@ -9,4 +9,4 @@ gems.tags
 /.tool-versions
 .envrc
 *.iml
-/docker-compose.virtiofs.yml
+/.fleet
